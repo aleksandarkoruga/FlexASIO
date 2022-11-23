@@ -138,7 +138,8 @@ namespace flexasio {
 
 				Log() << "Found a match with device " << device.index;
 				if (foundDevice.has_value())
-					throw std::runtime_error(std::string("Device search found more than one device: `") + foundDevice->info.name + "` and `" + name + "` (minimum channel count: " + std::to_string(minimumInputChannelCount) + " input, " + std::to_string(minimumOutputChannelCount) + " output)");
+					break;
+					//throw std::runtime_error(std::string("Device search found more than one device: `") + foundDevice->info.name + "` and `" + name + "` (minimum channel count: " + std::to_string(minimumInputChannelCount) + " input, " + std::to_string(minimumOutputChannelCount) + " output)");
 				foundDevice.emplace(device);
 			}
 			if (!foundDevice.has_value()) {
